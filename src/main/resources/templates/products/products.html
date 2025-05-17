@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products Page</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+</head>
+<body>
+<H1 class="text-center font-semibold text-3xl mt-5 text-red-500">THIS IS A API CALL BY FEIGN CLIENT TO PRODUCTS</H1>
+
+<div class="max-w-screen-xl mx-auto px-4 py-6 mt-10">
+    <h1 class="text-3xl font-bold mb-6 text-center">All Products</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div th:each="product : ${products2}" class="bg-white p-4 rounded-lg shadow-md shadow-red-500/50">
+            <img th:src="${product.image}" alt="Product Image" class="w-full h-48 object-contain mb-4">
+            <h2 class="text-lg font-semibold" th:text="${product.title}"></h2>
+            <p class="text-gray-700 text-sm truncate" th:text="${product.description}"></p>
+            <p class="text-indigo-600 font-bold mt-2" th:text="'₹ ' + ${product.price}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
